@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sucesso</title>
+</head>
+<body>
+    <div class="container1">
+        <h2>Sucesso!</h2>
+        <p>{{ message }}</p>
+        <a href="/">Voltar para o Login</a>
+    </div>
+    
+    <div class="container2">
+        <h3>Lista de Usuários Cadastrados</h3>
+        <ul>
+            {% for user in users %}
+                <li>{{ user.username }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="container3">
+        <!-- Botão para remover usuários -->
+        <h3>Gerenciamento de Usuários</h3>
+        <form action="/remove_user" method="POST">
+            <label for="username">Digite o nome de usuário para remover:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Remover Usuário</button>
+        </form>
+    </div>
+</body>
+</html>
