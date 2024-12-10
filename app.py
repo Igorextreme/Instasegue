@@ -6,10 +6,10 @@ import os
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
 
-# Configuração do banco de dados PostgreSQL
+# Configuração do banco de dados PostgreSQL usando Railway
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    'DATABASE_URL',
-    'postgresql://instapotion_user:e4gwb0Xh6WXBMtefvG0ndxAbS0inhtzp@dpg-ct6of7hu0jms739aq5r0-a.oregon-postgres.render.com/instapotion'  # Substitua pelo URL do Render
+    'RAILWAY_DATABASE_URL',
+    'postgresql://postgres:qONywbOLjsuASNPRsHYHGjQgoCZvgKYG@autorack.proxy.rlwy.net:44207/railway'  # Substitua pelos detalhes do Railway caso necessário
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
